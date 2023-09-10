@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/User');
 
 
-
+/* Controller d'inscription d'un user -> mot de passe haché avec bcrypt */
 exports.signup = (req, res, next) => {
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
@@ -18,6 +18,8 @@ exports.signup = (req, res, next) => {
         .catch(error => res.status(500).json({ error }));
 };
 
+
+/* Controller de connexion -> verification du mot de passe avec .compare de bcrypt + generation du token bearer via JWT */
 exports.login = (req, res, next) => {
     User.findOne({ email: req.body.email })
         .then(user => {

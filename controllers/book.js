@@ -5,7 +5,8 @@ const fs = require('fs');
 
 
 
-/* Création d'un livre et conversion de l'image en webp */
+/* Controller de création d'un livre et conversion de l'image en webp avec utilisation de sharp */
+
 exports.createBook = async (req, res, next) => {
 
     if (!req.file) {
@@ -19,7 +20,7 @@ exports.createBook = async (req, res, next) => {
     const originalname=req.file.originalname;
     const timestamp = Date.now();
     const ref = `${timestamp}-${originalname}.webp`
-
+/* La constante ref permet de donner un nom unique à chaque livre car on utilise un timestamp, précision du .web pour le format après conversion */
 
     sharp(req.file.buffer)
         .webp({ quality: 80 })
@@ -46,7 +47,7 @@ exports.createBook = async (req, res, next) => {
 
 
 
-/*Fonction d'affichage de tous les livres */
+/*Controller d'affichage de tous les livres */
 exports.getAllBooks = (req, res, next) => {
     Book.find()
         .then(books => res.status(200).json(books))
@@ -55,7 +56,7 @@ exports.getAllBooks = (req, res, next) => {
 
 
 
-/*Fonction d'affichage d'un livre */
+/*Controller d'affichage d'un livre */
 exports.getOneBook =  (req, res, next) => {
     Book.findOne({ _id: req.params.id })
         .then(book => res.status(200).json(book))
@@ -67,7 +68,7 @@ exports.getOneBook =  (req, res, next) => {
 
 
 
-/*Fonction de modification d'un livre */
+/*Controller de modification d'un livre et toujours conversion de l'image en webp si modifiee via sharp */
 
 exports.modifyBook =  (req, res, next) => {
 
@@ -75,6 +76,8 @@ exports.modifyBook =  (req, res, next) => {
     const originalname=req.file.originalname;
     const timestamp = Date.now();
     const ref = `${timestamp}-${originalname}.webp`
+/* La constante ref permet de donner un nom unique à chaque livre car on utilise un timestamp, précision du .web pour le format après conversion */
+
 
     sharp(req.file.buffer)
         .webp({ quality: 80 })
@@ -104,7 +107,8 @@ exports.modifyBook =  (req, res, next) => {
 
 
 
-/* Fonction de suppression d'un livre */
+/* Controller de suppression d'UN livre */
+/* Suppression du livre de la base de données et suppression de l'image dans le dossier /images */
 
 exports.deleteBook = (req, res, next) => {
     Book.findOne({ _id: req.params.id})
@@ -126,7 +130,10 @@ exports.deleteBook = (req, res, next) => {
  };
 
 
-/* Fonction de rating d'un livre */
+/* Controller de rating d'un livre */
+/* Notation allant de 1 à 5 */
+/* Authentification nécessaire car si l'user a déjà donné une note il ne peut pas en remettre une sur le même livre / ni la modifier  */
+/* Actualisation de la note moyenne du livre par la même ocassion afin de toujours avoir une note moyenne actualisée */
 
 exports.bookRating = (req, res, next) => {
     const userId = req.body.userId;
@@ -169,7 +176,7 @@ exports.bookRating = (req, res, next) => {
 
 
 
-/*Fonction d'affichage des livres les mieux notés */
+/*Controller d'affichage des livres les mieux notés */
 exports.bestRatedBooks = (req, res, next) => {
 
     Book.find().sort({ averageRating: -1 }).limit(3)

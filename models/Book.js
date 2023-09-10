@@ -1,5 +1,9 @@
 const mongoose = require('mongoose');
 
+
+
+/* Model book créé avec mongoose.Schema */
+
 const bookSchema = mongoose.Schema({
     userId: { type: String, required: true },
     title: { type: String, required: true },
