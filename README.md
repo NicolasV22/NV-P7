@@ -11,7 +11,7 @@ NV-P7
 
 ### Installation du projet
 
-Installer node.js et les packages requis (cf Package utilisés)
+Installer [Node.js] (pour utiliser [Node Packages Manager][npm] et les packages requis (cf Package utilisés)
 
 ```
 npm install multer
@@ -60,3 +60,8 @@ nodemon server
 
 ### N'hésitez pas à me contacter 
  <p align="center"> N'hésitez pas à me contacter si besoin d'informations complémentaires ! </p>
+
+
+ [Node.js]: https://nodejs.org/
+ [npm] : https://www.npmjs.com/get-npm
+ 
