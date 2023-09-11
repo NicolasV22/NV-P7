@@ -13,9 +13,6 @@ NV-P7
 
 Installer [Node.js] (pour utiliser [Node Packages Manager][npm] et les packages requis (cf Package utilisés)
 
-```
-npm install multer
-```
 
 
 Créer un dossier pour accueillir le backend 
