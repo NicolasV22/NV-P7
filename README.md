@@ -1,8 +1,7 @@
-# NV-P7
-NV-P7
+# Api du site Mon Vieux Grimoire
 
 
-## Descripion de l'API
+## Description de l'API
 - Création d'une api pour le site Mon Vieux Grimoire (Site communautaire permettant de partager un livre et de lui donner une note, la communauté peut également donner une note à un livre déjà ajouté)
 
 
