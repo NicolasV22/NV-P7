@@ -40,14 +40,22 @@ nodemon server
 
 
 ### Informations complémentaires
-Connexion à la BDD sécurisée avec utilisation de .env (base de données mongoDB)
-Securisation du compte lors de l'inscription mot de passe haché avec bcrypt
-Token généré à la connexion via jwt pour sécuriser les opérations (token valable 24h)
-Actellement execution du backend sur port localhost 4000
+- Connexion à la BDD sécurisée avec utilisation de .env (base de données mongoDB)
+- Securisation du compte lors de l'inscription mot de passe haché avec bcrypt
+- Token généré à la connexion via jwt pour sécuriser les opérations (token valable 24h)
+- Actellement execution du backend sur port localhost 4000
 
 ### Package utilisés
-Packages utilisés : multer, express, fs, sharp, mongoose, dotenv, path, jwt, bcrypt.
-Recommandation d'utilisation de nodemon server pour exécuter le backend(une fois la base de données installée elle peut directement être exécutée après installation de packages requis)
+- [multer]
+- [express]
+-  [fs]
+-  [sharp]
+- [mongoose]
+-  [dotenv]
+- [path] 
+-    [jwt]
+-    [bcrypt]
+
 
 
 ### N'hésitez pas à me contacter 
