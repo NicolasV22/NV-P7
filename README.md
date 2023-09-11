@@ -46,6 +46,14 @@ nodemon server
 - Actellement execution du backend sur port localhost 4000
 
 ### Package utilisés
+```
+cd [dossier utilisé]
+```
+
+```
+npm install [package]
+```
+
 - [multer]
 - [express]
 -  [fs]
